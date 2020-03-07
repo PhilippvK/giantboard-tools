@@ -59,7 +59,7 @@ echo "preparing kernel.."
 echo "cross_make: ${cross_make}"
 #
 
-if [ $1 == "clean" ]; then
+if [ $1 -eq "clean" ]; then
 	${cross_make} distclean
 fi
 
