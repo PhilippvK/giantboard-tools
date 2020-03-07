@@ -14,6 +14,10 @@ release=$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release)
 echo "${release}"
 case "${release}" in
 debian|ubuntu)
+	# Ensure that APT Keyring is setup
+	sudo apt-get install -y \
+		debian-keyring \
+		debian-archive-keyring
 	sudo apt install -y \
 		build-essential \
 		bc bison flex \
